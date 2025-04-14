@@ -11,4 +11,8 @@ export interface EnvConfiguration {
         password: string;
         database: string;
     };
+    jwt: {
+        secret: string;
+        expires: string;
+    };
 }

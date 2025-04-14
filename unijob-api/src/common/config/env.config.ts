@@ -15,4 +15,8 @@ export const loadConfig: () => EnvConfiguration = () => ({
         password: process.env.DB_PASS!,
         database: process.env.DB_NAME!,
     },
+    jwt: {
+        secret: process.env.JWT_SECRET!,
+        expires: process.env.JWT_EXPIRES_IN! || '7d',
+    },
 });

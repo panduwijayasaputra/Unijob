@@ -1,8 +1,9 @@
 import { Global, Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { loadConfig } from '../config/env.config';
-import { configTypeOrm } from '../config/typeorm.config';
+import { loadConfig } from '../common/config/env.config';
+import { configTypeOrm } from '../common/config/typeorm.config';
+import { User } from './models/user.model';
 
 @Global()
 @Module({
@@ -27,8 +28,10 @@ import { configTypeOrm } from '../config/typeorm.config';
         }),
 
         // Load Entitys
-        TypeOrmModule.forFeature([]),
+        TypeOrmModule.forFeature([
+            User
+        ]),
     ],
     exports: [TypeOrmModule],
 })
-export class TypeormConfigModule {}
+export class TypeormConfigModule { }
